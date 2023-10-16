@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<div  class="container mb-3 mt-3  text-light pt-4 pb-4">
+    <form  class="bg-dark text-light p-3" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="mb-3 btn btn-success">
+            {% if 'update' in request.path %}
+            Изменить статью
+            {% else %}
+            Добавить статью
+            {% endif %}
+        </button>
+    </form>
+</div>
+{% endblock main %}

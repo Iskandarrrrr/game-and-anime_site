@@ -1,0 +1,10 @@
+{% load blog_tags %}
+
+<div class="list-group mt-3">
+    <a href="{% url 'index' %}" class="text-center bg-dark text-light border border-danger list-group-item list-group-item-action">Сбросить фильтер</a>
+    {% get_sorters as sorters %}
+    {% for key, value in sorters.items %}
+    <a href="?sort={{ key }}" class="text-center bg-dark text-light border border-danger list-group-item list-group-item-action {% if category.title in title %} bg-dark text-light {% endif %}">{{ value }}</a>
+    {% endfor %}
+
+</div>
